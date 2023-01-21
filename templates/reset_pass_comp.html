@@ -1,0 +1,24 @@
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'style/reset.css' %}"/>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>  
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap"
+  rel="stylesheet"/>
+{% endblock %} 
+
+
+{% block body%}
+{% include 'header.html'%}
+
+
+<div class="uu">
+<h3>Password reset complete</h3>
+
+<p>Your password has been set. You may go ahead and log in now.</p>
+<br>
+<a href="{% url 'login' %}">Login</a>
+</div>
+{% endblock %} 

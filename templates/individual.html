@@ -1,0 +1,125 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block css%}
+<link rel="stylesheet" href="{% static 'style/profile1.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap" rel="stylesheet">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block body %}
+
+{% include 'header.html' %}
+    
+
+<div class="head_container">
+
+    <div class="container">
+
+        <div class="profile">
+
+            <div class="profile-image">
+
+                <img src="{{profile.auth_image.url}}" alt="">
+
+            </div>
+
+            <div class="profile-user-settings">
+
+                  <div class="profile-user-name">{{profile.username}}</div>
+
+                <!-- <button class="btn profile-edit-btn"> <a href="{% url 'edit_profile' %}">Edit Profile</a></button> -->
+
+                <!-- <button class="btn profile-settings-btn" aria-label="profile settings"><a
+                        href="{% url 'edit_profile' %}"><i class="fa fa-cog" aria-hidden="true"
+                            style='font-size:3</div>0px'></i></a></button> -->
+
+            </div>
+
+            <div class="profile-stats">
+
+                <ul>
+                    <li><span class="profile-stat-count">164</span> posts</li>
+                    <li><span class="profile-stat-count">188</span> followers</li>
+                    <li><span class="profile-stat-count">206</span> following</li>
+                </ul>
+
+            </div>
+
+            <div class="profile-bio">
+
+                <p><span class="profile-real-name">{{profile.Name}}</span> <br> {{ profile.Bio|slice:":155" }}
+                    📷✈️🏕️</p>
+
+            </div>
+        </div>
+        <div class="social-media">
+            <ul>
+                {% if profile.github %}
+                <li><a href="{{profile.github}}"> <i class="fa fa-github" style="font-size:36px"></i></li></a></li>
+                {% endif %}
+                {% if profile.instagram %}
+                <li><a href="{{ profile.instagram}}"><i class='fa fa-instagram' style='font-size:30px'></i></a></li>
+                {% endif %}
+                {% if profile.linkedin %}
+                <li><a href="{{ profile.linkedin}}"><i class='fa fa-linkedin' style='font-size:30px'></i></a></li>
+                {% endif %}
+                {% if profile.twitter %}
+                <li><a href="{{profile.twitter}}"><i class='fa fa-twitter' style='font-size:30px'></i></a> </li>
+                {% endif %}
+                {% if profile.mail %}
+                <li><a href="{{profile.mail}}"><i class='fa fa-mail' style='font-size:30px'>"fa fa-envelope"
+                            style="font-size:30px"></i></a> </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    </div>
+    <!-- End of profile section -->
+
+    </div>
+    <!-- End of container -->
+
+</div>
+<hr>
+<main>
+
+    <div class="containers">
+
+        {% for blog in blogs %}
+        <div class="gallery">
+           
+            <div class="gallery-item" tabindex="0">
+                <a href="{% url 'Read' blog.id%}">
+                 <img src="{{blog.blog_image.url}}" class="gallery-image" alt="">   
+                </a>
+
+                <div class="gallery-item-info">
+
+                    <ul>
+                        <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fa fa-heart"
+                                aria-hidden="true"></i> 56</li>
+                        <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i
+                                class="fa fa-comment" aria-hidden="true"></i> 2</li>
+                    </ul>
+                </div>
+               
+                </div>
+                <!-- <a href="{% url 'Read' blog.id%}">{{blog.blog_title}}</a> -->
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+
+
+
+        <!-- End of gallery -->
+        <!-- End of container -->
+
+</main>
+{% endblock %}

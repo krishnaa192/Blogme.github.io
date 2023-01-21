@@ -1,0 +1,32 @@
+{%load static%}
+{% block css%}
+<link rel="stylesheet" href="{% static 'style/formdes.css' %}"/>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>  
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap"
+  rel="stylesheet"/>
+{% endblock %} 
+{% block body %}
+
+{% include 'header.html' %}
+
+<!-- Main Section -->
+
+        <div class="title">
+            Enter new password
+        </div>
+
+        <h1> <p>Please enter your new password twice so we can verify you typed it in correctly.</p></h1>
+
+            <br>
+
+            <form class="form" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input  type="submit" value="Submit" />
+            </form>
+        </div>
+
+
+{% endblock  %}

@@ -1,0 +1,21 @@
+{%extends 'main.html'%}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'style/formdes.css' %}"/>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>  
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap"
+  rel="stylesheet"/>
+{% endblock %} 
+
+{% block body%}
+{% include 'header.html'%}
+<div class="title">Reset password</div>
+ <h1><p>Enter your email to reset your password</p></h1>
+<form action="" method="post">
+    {%csrf_token %}
+    {{form.as_p}}
+    <input type="submit"/>
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+.uu{
+  
+    width: 400px;
+    border: 2px solid black;
+    padding: 50px;
+    margin: 100px 0px 0px 500px;
+    border-radius: 5px;
+    
+  }
+  .uu a{
+    text-decoration: none;
+  }

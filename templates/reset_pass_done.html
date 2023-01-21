@@ -1,0 +1,23 @@
+{%extends 'main.html'%}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'style/reset.css' %}"/>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>  
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap"
+  rel="stylesheet"/>
+{% endblock %} 
+
+
+{% block body%}
+{% include 'header.html'%}
+
+<div class="uu">
+    <h2>Password reset sent </h2> <br>
+  We’ve emailed you instructions for setting your password, if an account exists with the email you entered. You should receive them shortly.
+     
+    If you don’t receive an email, please make sure you’ve entered the address you registered with, and check your spam folder.
+</div>
+
+{% endblock %} 
