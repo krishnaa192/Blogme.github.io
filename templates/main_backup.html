@@ -1,0 +1,93 @@
+{% load static %}
+{% block css%}
+
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'style/style.css' %}"/>
+
+<script src="https://kit.fontawesome.com/055b453045.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+{% include 'header.html' %}
+<div class="element-1">
+    <div id="element-1-1">
+        <h1>Trending Post</h1>
+    </div>
+    <div class="corosoul">
+        {% for Blog in work %}
+        <div class="corosoul-element">
+            <div class="corosoul-element1">
+                <img src="{{Blog.image.url }}">
+            </div>
+
+            <div class="corosoul-element-title">
+                <a href="{% url 'Read' Blog.id  %}">{{ Blog.blog_title }}</a>
+                <br>
+                {{Blog.user_name}}
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="bottom">
+    <div class="newpost">
+        <h2>Recent-Post</h2>
+        {% for Blog in latest_blog %}
+        <div class="post-corosoul">
+            <div class="post-corosoul-element">
+                <img src="{{Blog.image.url}}" alt="">
+            </div>
+            <div class="quote-new">
+                <div class="quote-title-new">
+                    <h3>{{Blog.blog_title}}</h3>
+
+                </div>
+                <div class="quote-about-new">
+                    {{Blog.short_intro}}.
+                </div>
+                <div class="quote-author-new">
+                    {{Blog.user_name}}
+                    <div class="datetime">
+                        Uploaded at {{Blog.upload}}
+                    </div>
+                </div>
+                <div class="read">
+                    <a href="{% url 'Read' Blog.id %}">Read</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+    <div class="info-bar">
+        <h2>Topics</h2>
+        <ul>
+            {% for Tags in tags %}
+            <li> <a href="#">{{Tags.name}}</a></li>
+            <hr>
+            {% endfor %}
+            
+        </ul>
+        
+        <div class="newsletter">
+            <h2>Sunscribe to newsletter</h2>
+            <form action="#">
+                <div class="form-element"> <label for="name">Name:</label><br>
+                    <input type="text" id="fname" name="name"><br>
+                </div>
+                <div class="form-element"> <label for="name">Email:</label><br>
+                    <input type="email" id="Email" name="name"><br>
+                </div>
+                <a href="#" class="btn">Submit</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

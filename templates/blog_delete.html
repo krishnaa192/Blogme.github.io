@@ -1,0 +1,21 @@
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'style/delete_blog.css' %} "/>
+{% endblock %}
+
+{% block body %}
+<div class="warning-container">
+    <h1>Warning</h1>
+    <div class="flash_message-delete">
+        <form action="{% url  'delete_blog' blog.id %}" method="post">
+            {% csrf_token%}
+       <h2>Do You really wanna delete this blog?</h2>
+    </div>
+    <div class="response">
+      <button><a href="{% url 'Home' %}"></a>No</button>
+      <input type="submit" value="Yes" />
+    </div>
+  </div>
+</form>
+{% endblock %}

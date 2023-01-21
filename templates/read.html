@@ -1,0 +1,85 @@
+{% load static %}
+{% block css %}
+
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'style/read.css' %}"/>
+{% endblock %}
+
+{% block body %}
+{% include 'header.html' %}
+
+
+    <div class="title">
+
+        <h1>{{post.blog_title}}</h1>
+        <span><i style="font-size:24px" class="fa">&#xf142;</i></span>
+        <div class="underscores">by <a href="#">{{post.Author}}</a>
+            <!-- <button>Follow</button> <br> -->
+           <small>{{post.upload}}</small> 
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="main-author">
+            <div class="post_element">
+                <div class="post">
+                    <img src="{{post.blog_image.url}}" alt="{{post.blog_title}}">
+                </div>
+                <div class="post_text">
+                    {{post.blog}}
+                   <br>
+                    {{post.tags}}<br>
+                   <b> by:{{post.Pen_name}}</b> 
+                   <br>
+                   {% if user.is_authenticated %}
+                   {% if profile.id == post.Author.id %}
+                  <div class="btn"><a href="{% url 'update_blog' post.id %}">Edit</a></div>
+                   <div class="btn"><a href="{% url 'delete_blog' post.id %}">delete</a></div>
+                   {% endif %}
+                   {% endif %}
+                   <hr>
+                </div>
+        
+            </div>
+            <!-- <div class="response">
+                <ul>
+                    <li><a href=""><i class='fas fa-heart' style='font-size:36px; color:white'></i></a> </li>
+                    <li><a href=""><i class='fas fa-heart' style='font-size:36px; color:red'></i></a> </li>
+                    <li><a href=""><i class='far fa-comment' style='font-size:36px'></i></a></li>
+                    <li><a href=""><i class='fas fa-bookmark' style='font-size:30px'></i></a></li>
+                </ul>
+            
+          
+        </div>   -->
+            <!-- <div class="comment-cont">
+
+                <p>Comments....</p>
+
+                <div class="comment-element">
+                    <hr>
+                    <div class="comment-profle">
+                        <a href="#"><strong>Krishna Upadhyay</strong></a> --2Nov 3:00pm
+                        <button>Reply</button> <br>
+                    </div>
+                    It is a great blog portraying the essence o society trough varoius topologies..
+                    <hr>
+                    <div class="more_comment">
+                        <a href="#"><small>
+                                More comments.</small></a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+        <div class="others">
+            <h3>More By Author.....</h3>
+            {% for auth_blog in others %}
+                <ul>
+                    <li><a href="#">{{auth_blog.blog_title}}</a></li>
+                   </ul>
+              {% endfor %}     
+             
+        </div>
+    </div>
+        {% include 'footer.html' %}
+    
+    {% endblock %}
+

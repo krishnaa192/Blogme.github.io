@@ -1,0 +1,17 @@
+
+{% load static %}
+{% include 'header.html' %}
+ this is blog psge u can blog anywhere .
+ {% for blogs in blog %}
+   <p>  {{blogs.blog_title}} </p>
+  <p> <img src="{{blogs.blog_image.url}}" alt="{blogs.blog_title}}"></p>
+   <p>
+    {{ blogs.desc}}
+   </p>
+   <p>
+    {{blogs.update}}
+   </p>
+   <p>
+    {{blogs.Author}}
+   </p>
+   {% endfor%}

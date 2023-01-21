@@ -1,0 +1,59 @@
+{% load static %} {% block css%}
+<link rel="stylesheet" href="{% static 'style/blogpage.css' %}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% endblock %} {% block body %} {% include 'header.html' %}
+<h2>Quotes</h2>
+<hr />
+<div class="main-head">
+  <!-- main container -->
+  <div class="head-container">
+    <!-- container for blogs  -->
+    {% for content in blogs%}
+    <div class="main-container">
+      <div class="container">
+        <div class="blog-title">
+          <a href="{% url 'Read' content.id %}"><h2>{{content.blog_title}}</h2></a>
+        </div>
+        <div class="blog-desc">
+          {{content.desc}}
+          <br />
+          {{content.update}} <br />
+          <div class="author">by <a href="#"> {{content.Author}}</a></div>
+          <img src="{{content.blog_image.url}}" alt="{{content.blog_title}}" />
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div> 
+    <!-- quick access section -->
+    <div class="quick-access">
+      <h2>Quick Access</h2>
+      <ul>
+        <li>
+          <a href="">Top Blogs</a>
+        </li>
+        <li>
+          <a href="#">Your Blogs</a>
+        </li>
+        {% if request.user.is_authenticated %} 
+        <li>
+          <a href="{%  url 'logout' %}">Sign in</a>
+        </li>
+        {% else %}
+        <li>
+          <a href="{%  url 'login' %}">Sign out</a>
+        </li>
+        <li><a href="{% url 'signup' %}">Sign up</a></li>
+        {% endif %}
+        <li><a href="#">Contat Us</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+  {% include 'paginator.html' with query=blogs custom_ranges=custom_ranges %}
+
+   {% include 'footer.html' %}
+  
+
+  {% endblock %}
+

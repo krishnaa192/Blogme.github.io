@@ -1,0 +1,77 @@
+{% load static %}
+{% block css%}
+    <link rel="stylesheet" href="{% static 'style/profile.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% endblock %}
+
+   {% block body %}
+   {% include 'header.html' %}
+    
+    
+<div class="profile">
+    
+    <div class="user_detail">
+        <div class="profile-pic">
+        <img src="{{profile.auth_image.url}}" alt="">
+    </div>
+        <div class="user_desc">
+           <div class="user_name">
+            <span>{{profile.username}}</span>
+           <buttons><a href="{% url 'edit_profile' %}"><small>Edit Profile </small></a></buttons>
+           </div>
+            <div class="user_list">
+            <label> {{posts}} Post </label>
+            <a href="#">Followers</a>
+            <a href="#">Following</a>
+            </div>
+            <div class="description">
+            <h3>{{profile.Name}}</h3> 
+            <br>
+            <div class="bio">
+                {{ profile.Bio|slice:":155" }}
+            </div>
+            
+            <br>
+         
+        </div>
+            <div class="social-media">
+            <ul>
+                {% if profile.github %}
+                <li><a href="{{profile.github}}"> <i class="fa fa-github" style="font-size:36px"></i></li></a></li>
+                {% endif %}
+                {% if profile.instagram %}
+                <li><a href="{{ profile.instagram}}"><i class='fab fa-instagram' style='font-size:30px'></i></a></li>
+                {% endif %}
+                {% if profile.linkedin %}
+                <li><a href="{{ profile.linkedin}}"><i class='fab fa-linkedin' style='font-size:30px'></i></a></li>
+                {% endif %}
+                {% if profile.twitter %}
+                <li><a href="{{profile.twitter}}"><i class='fab fa-twitter' style='font-size:30px'></i></a> </li>
+                {% endif %}
+                {% if profile.mail %}
+                <li><a href="{{profile.mail}}"><i class='fab fa-mail' style='font-size:30px'>"fa fa-envelope" style="font-size:30px"></i></a> </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    </div>
+{% for blog in blogs %}
+    <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src="{{blog.blog_image.url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{blog.blog_title}}</h5>
+          <p class="card-text">{{blog.desc}}</p>
+          <a href="{% url 'Read' blog.id%}" class="btn btn-primary">Read</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+</div>
+    
+     {% endblock %}

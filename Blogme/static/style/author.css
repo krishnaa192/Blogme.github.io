@@ -1,0 +1,185 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    /* background-color: #f6f6f6; */
+    box-sizing: border-box;
+    /* color: black; */
+    }
+
+    header{
+    background-color: #008489;
+    /* border: 1px solid red; */
+    height: 67px;
+    }
+     /* #Headder */
+    
+     
+    .icon{
+      font-family: 'Times New Roman', Times, serif;
+      color: white;
+      height: inherit;
+      padding-right: 5px;
+      margin: 7px;
+      font-size: 1.5rem;
+    }
+    .menu{
+       display: flex;
+       /* position: relative; */
+        justify-content: flex-end;
+        cursor: pointer;
+    }
+    .menu ul{
+       display: flex;
+    }
+    .menu ul li a{
+       color: white;
+       display: block;
+       padding: 7px 42px;
+       text-decoration: none;
+       /* padding: 21px; */
+    }
+    .menu ul {
+       list-style-type: none;
+       bottom: 60px;
+    }
+    .menu ul li a :hover{
+        background-color: burlywood;
+      transition: 0.5s ;
+    
+    }
+    header ul {
+       position: relative;
+    }
+    header .menu-toggle{
+        display: none;
+     }
+    .author{
+       padding: 22px;
+       margin: 1px;
+    }
+    .author h2{
+        padding: 0px 369px;
+        margin:  10px 172px;
+        font-size: 2rem;
+    }
+    .search-container button {
+        /* float: right; */
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+      }
+      .search-container button:hover {
+        background: #ccc;
+      }
+      input[type=text]{
+        height: 33px;
+        width: 200px;
+        border-radius: 7px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        padding: 10px 11px;
+      }
+    .author-image{
+        overflow: hidden;
+        height:145px;
+        width: 145px;
+        border-radius: 50%;
+        z-index: +1;
+        padding: 2px;
+        margin: 35px;
+        background-repeat: no-repeat;
+        background-position: center center;
+         background-size: cover;
+    }
+    .author-info{
+        display: flex;
+        flex-direction: row;
+        width: 45.1%;
+        border: 3px solid #f1f1f1;
+        margin:11px 30px;
+        border-radius: 21px;
+    }
+
+    .author-name{
+        padding:  10px 0px;
+        margin:  9px 19px 4px 4px;
+        font-size: 1.3rem;
+    }
+    .author-bio h5{
+      padding: 0px 0px 0px 23px;
+     
+    }
+    .author-name a{
+      text-decoration: none;
+      display: flex;
+      
+    }
+    .author-dsc{
+        margin: 3px 0px;
+        display: flex;
+        flex-direction: column;
+        width:69%;
+    }
+    .author-name a{
+      font-size: 60%;
+      margin-right: 2px;
+      padding-right:73px ;
+      /* float:; */
+      color: darkgoldenrod;
+      text-decoration: none;
+      cursor:pointer;
+      
+    }  
+    #mybtn{
+      display:inline-block;
+      height: auto;
+      width: fit-content;
+      margin-left: 120px;
+      margin-top: 12px;
+      background-color: beige;
+    }
+    .social-buttons {
+      display: flex;
+      flex-wrap: wrap; 
+      margin:169px 38px;
+      position:absolute;
+    }
+    .social-buttons a i{
+      position: sticky;
+      padding: 13px 2.5px;
+    }
+    .author-container{
+         display: flex;
+         flex-direction: row;
+         flex-wrap: wrap;
+    }
+      .author-button{
+        
+            background-color: blueviolet;
+            color: white;
+            padding: 6px 1px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 9px 124px;
+            cursor: pointer;
+            align-items: center;
+            text-decoration: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: black;
+            border-radius: 17px;
+        }
+        #more{display :none;}
+        footer {
+            height: 200px;
+            width: 100%;
+            background-color: #008489;
+           
+            padding:  16px 23px;
+            margin:  18px 2px;
+        }

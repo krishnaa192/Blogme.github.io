@@ -1,0 +1,26 @@
+{% block css%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style/formdes.css' %}"/>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>  
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap"
+  rel="stylesheet"/>
+{% endblock %} 
+
+
+
+{% block content %}
+
+{% include 'header.html' %}
+<div class="title"> Submit your quote</div>
+
+<form action="" method="post">
+    {% csrf_token %}
+   {{form.media}}
+   {{form.as_p}}
+   <input type="submit" value="Submit">
+</form>
+{% include 'footer.html' %}
+{% endblock %}
+

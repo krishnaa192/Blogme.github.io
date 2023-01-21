@@ -1,0 +1,25 @@
+{% block css%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style/formdes.css' %}"/>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>  
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap"
+  rel="stylesheet"/>
+{% endblock %} 
+
+
+
+{% block content %}
+
+{% include 'header.html' %}
+<div class="title"> Edit account</div>
+<form action="{% url 'edit_profile' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_media}}
+    {{form.as_p}}
+    <input type="Submit" value="Edit account" />
+</form>
+
+{% include 'footer.html' %}
+{% endblock %}

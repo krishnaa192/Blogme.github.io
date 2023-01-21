@@ -1,0 +1,37 @@
+{% load static %}
+
+    {% block css %}
+    <script src="https://kit.fontawesome.com/055b453045.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap"
+        rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>  
+        {% endblock %}
+
+{% block body%}
+    <header>
+        <i class="fa fa-bars menu-toggle">
+        </i>
+        <div class="icon">
+            <a href="{% url 'Home'%}"> <h2>Blogme</h2></a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="{% url 'Home'%}"><i class='fas fa-home' style='font-size:36px'></i></a> </li>
+                <li><a href="{% url 'all_blog' %}"><i class='fas fa-pen' style='font-size:36px'></i></a> </li>
+                <li><a href="{% url 'authors' %}"><i class='fas fa-users' style='font-size:36px'></i></a></li>
+             
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'profile'%}"><i class='fas fa-user-circle' style='font-size:36px'></i></a> </li>
+                <li><a href="{%  url 'logout' %}"> <i class="fa fa-sign-out" style="font-size:36px"></i></a></li>
+                {% else %}
+                <li><a href="{%  url 'login' %}"><i class='fas fa-sign-in-alt' style='font-size:36px'></i></a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+    
+
+    {% endblock%}

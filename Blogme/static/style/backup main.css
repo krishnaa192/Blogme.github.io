@@ -1,0 +1,281 @@
+
+
+*{
+    margin: 0%;
+    padding: 0%;
+    /* background-color: #f6f6f6; */
+    box-sizing: border-box;
+    }
+    header{
+    background-color: #008489;
+    /* border: 1px solid red; */
+    height: 67px;
+    }
+     /* #Headder */
+    
+     
+    .icon{
+      font-family: 'Times New Roman', Times, serif;
+      color: white;
+      height: inherit;
+      padding-right: 5px;
+      margin: 7px;
+      font-size: 1.5rem;
+    
+    
+    }
+    .menu{
+       display: flex;
+       /* position: relative; */
+        justify-content: flex-end;
+        cursor: pointer;
+    }
+    .menu ul{
+       display: flex;
+    }
+    .menu ul li a{
+       color: white;
+       display: block;
+       padding: 7px 42px;
+       text-decoration: none;
+       /* padding: 21px; */
+    }
+    .menu ul {
+       list-style-type: none;
+       bottom: 60px;
+    }
+    .menu ul li a :hover{
+        background-color: burlywood;
+      /* transition: 0.5s ; */
+      color: black;
+      border-radius: 33px;
+    
+    }
+    header ul {
+       position: relative;
+    }
+    header .menu-toggle{
+       display: none;
+    }
+    
+      /* #trending post */
+    .element-1{
+    margin: 56px 25px;
+    
+    
+    }
+    /* h1, h2{
+       font-family: Bebas Neue;
+    } */
+    
+    
+    
+    
+    h1{
+       text-align: center;
+       margin-top: 42px;
+       font-size: 3rem;
+       font-family: Bebas Neue;
+    }
+    
+    .corosoul-element{
+       justify-content: center;
+       /* padding: 22px; */
+       margin: 5px;
+       height: 300px;
+       width: 300px;
+       /* border:  2px solid black; */
+       border-radius: 5px;
+    }
+    .corosoul-element img{
+       overflow: hidden;
+       height: 300px;
+        width:300px;
+    }
+    .corosoul-element-title{
+    /* border: 2px black solid; */
+    /* overflow: hidden; */
+    height: 61px;
+    justify-content: center;
+    padding: 12px;
+    padding-left: 89px;
+    
+    }
+    .corosoul-element-title a{
+       text-decoration: none;
+       padding: 0px 0px;
+    }
+    .corosoul{
+       display: flex;
+       flex-direction:row;
+      margin-top:  44px;
+      margin-left: 39px;
+    
+    }
+    /* #bottom new posts */
+    .bottom{
+       display: flex;
+       flex-direction: row;
+       /* border: 2px black solid; */
+      width: 100%;
+      padding:  32px 60px;
+      /* margin-top: -33px; */
+      }
+      .newpost h2{
+         font-size: 3rem;
+         margin: 3px;
+          /* border: 2px solid red; */
+          /* float:left; */
+          text-align: center;
+          /* position: relative; */
+          /* overflow: hidden; */
+          width: 69%;
+       
+      }
+      
+      .Register h2{
+       text-align: center;
+       margin-top: 42px;
+       font-size: 2rem;
+      }
+      .read{
+       text-align: center;
+       width: 81px;
+       height: 38px;
+       /* background-color: blue; */
+       display:flex;
+       padding: 6px 19px;
+       border: 2px blue solid;
+       color: black;
+       border-radius: 16px;
+       margin:  13px 118px;
+       font-size: 1.235rem;
+      }
+    
+      .read a{
+    
+       text-decoration: none;
+       justify-content: center;
+     
+    
+    
+      }
+    
+      .post-corosoul-element{
+       justify-content: center;
+       /* padding: 22px; */
+       /* margin: 5px; */
+       height: 300px;
+       width: 454px;
+       /* border:  2px solid black; */
+       border-radius: 5px;
+       
+    
+    }
+    .post-corosoul-element img{
+       overflow: hidden;
+       height: 300px;
+       width:454px ;
+       margin: 2px;
+       padding: 3px;
+    }
+    .post-corosoul{
+       display: flex;
+       flex-direction:row;
+       margin-top:  44px;
+       /* border: 2px black solid; */
+       margin: 0px;
+       padding: 0px;
+    }
+    .quote-new{
+       display: flex;
+       flex-direction: column;
+       margin: 2px;
+       padding: 2px;
+    }
+    .quote-title-new{
+    margin-top: 33px;
+    text-align: center;
+    margin-right: 16px;
+    bottom: 100px;
+    /* display: flex; */
+    /* float:right; */
+    /* border: 2px black solid; */
+    
+    }
+    .quote-about-new{
+       text-align: center;
+       padding-right: 11px;
+       /* border: 2px black solid; */
+     
+    }
+    .quote-author-new{
+       text-align: center;
+       padding-right: 11px;
+       /* border: 2px black solid; */
+     
+    }
+    
+    .post-corosoul-element-title{
+      float: right;
+      bottom: 80px;
+      ;
+    
+    }
+    .info-bar{
+     /* border: 2px red solid; */
+     padding: 189px 115px;
+    width: 40%;
+    }
+    .info-bar ul{
+      padding:20px 1px;
+      margin: 33px 2px;
+      /* border: 3px black solid; */
+      text-align: center;
+      font-weight: bold;
+      list-style-type: none;
+      width: 109%;
+    }
+    .info-bar ul li a{
+     font-size: 1.5rem;
+     text-decoration: none;
+     padding-bottom:33;
+    }
+    .newsletter{
+     padding-top: 272px;
+    }
+    .btn{
+      padding-top: 33px;
+      align-items: center;
+      /* */
+    
+    }
+    .btn{
+      
+          background-color: blueviolet;
+          border: none;
+          color: white;
+          padding: 5px 18px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: -9px 74px;
+          cursor: pointer;
+    }
+    #name{
+    /* padding-top: 22px; */
+    margin: 8px 0px;
+    }
+    .form-element{
+      margin: 32px;
+    
+    }
+    footer {
+     height: 300px;
+     background-color: #008489;
+     /* border: 1px solid red; */
+    }
+    .contact{
+       color: black;
+    }

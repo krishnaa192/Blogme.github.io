@@ -1,0 +1,53 @@
+{% block css%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style/formdes.css' %}"/>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>  
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap"
+  rel="stylesheet"/>
+{% endblock %} 
+
+
+
+{% block content %}
+
+{% include 'header.html' %}
+
+<div class="container_main">
+    <form action="{% url 'signup' %}" method="post" >
+        {%  csrf_token %}
+        <div class="container">
+            <div class="title1"> Please fill  this form to create an account.</div>
+            <!-- <p></p> -->
+            <hr>
+            {% for field in form %}
+            <label for="formInput#text"><b>{{field.label}}</b></label>
+            <br>
+           {{field}}
+           {%if field.help_text%}
+           <small>{{field.help_text}}</small>
+            
+            {% endif %}
+            <br>
+    {% for error in field.errors %}
+    <p style="color: red";> {{error}}</p>
+    {% endfor %}
+
+    {% endfor %}
+            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+        
+    
+          <input type="submit" value="SignUp">
+    
+            <div class="btns">
+            <a href="{% url 'login' %}"> Have a account?</a></button>
+            </div>
+        </div>
+      
+    </form>
+   
+</div>
+{% include 'footer.html' %}
+{% endblock %}

@@ -1,0 +1,62 @@
+{% load static %} {% block css%}
+<link rel="stylesheet" href="{% static 'style/blogpage.css' %}" />
+{% endblock %} {% block body %} {% include 'header.html' %}
+<h2>Quotes</h2>
+<hr />
+<div class="main-head">
+  <!-- main container -->
+  <div class="head-container">
+    <!-- container for blogs  -->
+    {% for blogs in blog %}
+    <div class="main-container">
+      <div class="container">
+        <div class="blog-title">
+          <a href="{% url 'Read' blogs.id %}"> <h2>{{blogs.blog_title}}</h2></a>
+        </div>
+        <div class="blog-desc">
+          {{ blogs.desc}}
+          <br />
+          {{blogs.update}} <br />
+          <div class="author">by <a href="#"> {{blogs.Author}}</a></div>
+          <img src="{{blogs.blog_image.url}}" alt="{blogs.blog_title}}" />
+        </div>
+      </div>
+    </div>{% endfor%}
+  </div>
+    <!-- quick acess section -->
+    <div class="quick-access">
+      <h2>Quick Access</h2>
+      <ul>
+        <li>
+          <a href="">Top Blogs</a>
+        </li>
+        <li>
+          <a href="#">Your Blogs</a>
+        </li>
+        {% if request.user.is_authenticated %} 
+        <li>
+          <a href="{%  url 'logout' %}">Sign in</a>
+        </li>
+        {% else %}
+        <li>
+          <a href="{%  url 'login' %}">Sign out</a>
+        </li>
+        <li><a href="{% url 'signup' %}">Sign up</a></li>
+        {% endif %}
+        <li><a href="#">Contat Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  
+    
+      {% for page in paginator.page_range %}
+      <li><a href="?page=={{page}}">{{page}}</a></li>
+    </ul>
+  </div></div>
+  {% endfor %}
+   {% include 'footer.html' %}
+  
+</div>
+  {% endblock %}
+

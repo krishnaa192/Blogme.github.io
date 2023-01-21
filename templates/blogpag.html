@@ -1,0 +1,94 @@
+{% load static %}
+
+    
+	<!-- <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog</title> -->
+    {% block css%}
+	<link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
+    <link href="{% static 'style/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'style/temp_blog.css'%}" rel="stylesheet">
+{% endblock %} {% block body %} {% include 'header.html' %}
+    
+
+
+	
+    <div class="container-fluid">
+        <main class="tm-main">
+            
+            <!-- Search form --> 
+            <div class="row tm-row">
+                <div class="col-12">
+                    <form action="{% url 'all_blog' %}" method="get" class="form-inline tm-mb-80 tm-search-form">                
+                        <input class="form-control tm-search-input" name="search_query" type="text" placeholder="Search..." value="{{search_query}}"/>
+                        <div class="tm-search-button" type="submit"  value="{{search_query}}">
+                            <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+                                                      
+                    </form>
+                </div>                
+            </div>            
+            <div class="row tm-row">
+                {% for content in blogs%}
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <a href="{% url 'Read' content.id %}" class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                            <img src="{{content.blog_image.url}}" alt="Image" class="img-fluid">                            
+                        </div>
+                      
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{content.blog_title}}</h2>
+                    </a>                    
+                    <p class="tm-pt-30">
+                        {{content.desc}}
+                    </p>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Tags</span> 
+                        <br/>
+                        <span class="tm-color-primary"> {{content.upload}}</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>36 comments</span>
+                        <span>by {{content.Author}}</span>
+                    </div>
+                </article>
+                {% endfor %}
+               
+            </div>
+            <div class="row tm-row tm-mt-100 tm-mb-75">
+                <div class="tm-prev-next-wrapper">
+                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next disabled tm-mr-20">Prev</a>
+                    <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Next</a>
+                </div>
+                <div class="tm-paging-wrapper">
+                    <span class="d-inline-block mr-3">Page</span>
+                    <nav class="tm-paging-nav d-inline-block">
+                        <ul>
+                            <li class="tm-paging-item active">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">1</a>
+                            </li>
+                            <li class="tm-paging-item">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">2</a>
+                            </li>
+                            <li class="tm-paging-item">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">3</a>
+                            </li>
+                            <li class="tm-paging-item">
+                                <a href="#" class="mb-2 tm-btn tm-paging-link">4</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>                
+            </div>            
+            
+        </main>
+    </div>
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/templatemo-script.js'%}"></script>
+
+    {% include 'footer.html' %}
+  
+
+    {% endblock %}
+  
